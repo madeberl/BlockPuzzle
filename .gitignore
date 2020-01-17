@@ -1,9 +1,24 @@
+# Mac
+.DS_Store
+
+# Eclipse
+bin/
+.settings/
+.classpath
+
+# Intellij
 .idea/
 target/
+
+# Maven
 log/
+
+# Gradle
 .gradle/
 build/
 pom.xml
+
+# sbt
 .cache
 .history
 .lib/
@@ -17,7 +32,13 @@ project/project/
 logs/
 project/.sbtserver
 .sbtserver/
+
+# Scala-IDE specific
 .scala_dependencies
 .worksheet
+
+# Sonar
 .sonar/
-mastermind.log
+
+# Application
+yourgame.log

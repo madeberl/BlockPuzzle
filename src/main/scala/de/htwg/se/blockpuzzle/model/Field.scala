@@ -10,7 +10,12 @@ case class Field(fs: Int) {
       cells(x)(y) = Cell(0)
     }
   }
-  def + (that:Block,atx:Int,aty:Int):Field={
+
+  def + (that:Block, atx:Int, aty:Int): Field = {
+    if(that.blocktype == -1){
+      returnedBackup = true
+      return this
+    }
     returnedBackup = false
     var backup = Field(8)
     backup.count = this.count
@@ -19,18 +24,20 @@ case class Field(fs: Int) {
         backup.cells(x)(y) = this.cells(x)(y)
       }
     }
-    if (aty+that.blockmaxy > fieldsize ||atx+that.blockmaxx > fieldsize){
+    if (aty + that.blockmaxy > fieldsize || atx + that.blockmaxx > fieldsize){
+      returnedBackup = true
       return backup
     }
     for (y <- 0 until that.blockmaxy;
          x <- 0 until that.blockmaxx) {
-      if(x<=fieldsize && y<=fieldsize){
-        this.cells(atx+x)(aty+y)=this.cells(atx+x)(aty+y) + that.cells(x)(y)
-      }else{
+      if (x <= fieldsize && y <= fieldsize){
+        this.cells(atx + x)(aty + y) = this.cells(atx + x)(aty + y) + that.cells(x)(y)
+      } else {
+        returnedBackup = true
         return backup
       }
     }
-    if(!fit){
+    if(!fit) {
       returnedBackup = true
       return backup
     }
@@ -43,55 +50,59 @@ case class Field(fs: Int) {
     var str = ""
     for (y <- 0 until fieldsize){
       for (x <- 0 until fieldsize) {
-        str += this.cells(x)(y).isblocked+" "
+        str += this.cells(x)(y).isblocked + " "
       }
       str += ("\n")
     }
     str
   }
+
   def toStringWithCoordinates: String = {
     var str = " |1_2_3_4_5_6_7_8\n"
     for (y <- 0 until fieldsize){
-      str += (y+1)+"|"
+      str += (y + 1) + "|"
       for (x <- 0 until fieldsize) {
-        str += this.cells(x)(y).isblocked+" "
+        str += this.cells(x)(y).isblocked + " "
       }
       str += ("\n")
     }
     str
   }
-  def fit():Boolean={
+
+  def fit(): Boolean = {
     for (y <- 0 until fieldsize;
          x <- 0 until fieldsize){
-      if(this.cells(x)(y).isblocked > 1){
+      if(this.cells(x)(y).isblocked >= 2){
         return false
       }
     }
-    return true
+    true
   }
-  def eightInARow() = {
-    for(pos <- 0 until fieldsize){
-      if(this.cells(0)(pos).isblocked == 1 && this.cells(1)(pos).isblocked == 1 && this.cells(2)(pos).isblocked == 1 && this.cells(3)(pos).isblocked == 1 && this.cells(4)(pos).isblocked == 1 && this.cells(5)(pos).isblocked == 1 && this.cells(6)(pos).isblocked == 1 && this.cells(7)(pos).isblocked == 1){
-        this.cells(0)(pos).isblocked = 0
-        this.cells(1)(pos).isblocked = 0
-        this.cells(2)(pos).isblocked = 0
-        this.cells(3)(pos).isblocked = 0
-        this.cells(4)(pos).isblocked = 0
-        this.cells(5)(pos).isblocked = 0
-        this.cells(6)(pos).isblocked = 0
-        this.cells(7)(pos).isblocked = 0
-        this.count= this.count + 8
+
+  def isBlocked(no: Int, pos: Int): Boolean = {
+    this.cells(no)(pos).isblocked == 1
+  }
+
+  def eightInARow(): Unit = {
+    for (pos <- 0 until fieldsize) {
+      if (isBlocked(0, pos) && isBlocked(1, pos) && isBlocked(2, pos) && isBlocked(3, pos) &&
+        isBlocked(4, pos) && isBlocked(5, pos) && isBlocked(6, pos) && isBlocked(7, pos)) {
+
+        for (i <- 0 to 7) {
+          this.cells(i)(pos).isblocked = 0
+        }
+
+        this.count = this.count + fieldsize
       }
-      if(this.cells(pos)(0).isblocked == 1 && this.cells(pos)(1).isblocked == 1 && this.cells(pos)(2).isblocked == 1 && this.cells(pos)(3).isblocked == 1 && this.cells(pos)(4).isblocked == 1 && this.cells(pos)(5).isblocked == 1 && this.cells(pos)(6).isblocked == 1 && this.cells(pos)(7).isblocked == 1){
-        this.cells(pos)(0).isblocked = 0
-        this.cells(pos)(1).isblocked = 0
-        this.cells(pos)(2).isblocked = 0
-        this.cells(pos)(3).isblocked = 0
-        this.cells(pos)(4).isblocked = 0
-        this.cells(pos)(5).isblocked = 0
-        this.cells(pos)(6).isblocked = 0
-        this.cells(pos)(7).isblocked = 0
-        this.count= this.count + 8
+
+      if (isBlocked(pos, 0) && isBlocked(pos, 1) && isBlocked(pos, 2) && isBlocked(pos, 3) &&
+        isBlocked(pos, 4) && isBlocked(pos, 5) && isBlocked(pos, 6) && isBlocked(pos, 7)) {
+
+        for (i <- 0 to 7) {
+          this.cells(pos)(i).isblocked = 0
+        }
+
+        this.count = this.count + fieldsize
       }
     }
   }

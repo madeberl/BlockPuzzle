@@ -1,8 +1,13 @@
-import de.htwg.se.blockpuzzle.aview.tui.Tui
-import de.htwg.se.blockpuzzle.controller.Controller
+import de.htwg.se.blockpuzzle.model.Block
 
-var controller = new Controller
-var tui = new Tui(controller)
+var i = -1
+while(i < 18) {
+  val b = Block(i)
+  print(i + ":\n\n")
+  print("" + b.toString)
+  println("\n\n")
+  i += 1
+}
 
 
 

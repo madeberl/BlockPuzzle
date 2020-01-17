@@ -1,10 +1,10 @@
 package de.htwg.se.blockpuzzle.util
 
-import de.htwg.se.blockpuzzle.util.Observable
-import de.htwg.se.blockpuzzle.util.Observer
+//import de.htwg.se.blockpuzzle.util.Observable
+//import de.htwg.se.blockpuzzle.util.Observer
 
 class TestObject extends Observer {
-  def update = println("Ping")
+  def update: Unit = println("Ping")
 }
 
 class ObserverPattern {
