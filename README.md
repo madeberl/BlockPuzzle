@@ -1,4 +1,7 @@
-# Woodblockpuzzle
+# Blockpuzzle
+
+[![Build Status](https://travis-ci.org/madeberl/BlockPuzzle.svg?branch=SE-08_Undo)](https://travis-ci.org/madeberl/BlockPuzzle)
+
 
 =====================================================
 A game from two students for the lecture SoftwareEngineering
