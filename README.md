@@ -1,5 +1,4 @@
 # Woodblockpuzzle
-[![Build Status](https://travis-ci.org/Stormshadow220/WoodBlockPuzzle.svg?branch=master)](https://travis-ci.org/Stormshadow220/WoodBlockPuzzle)
 
 =====================================================
 A game from two students for the lecture SoftwareEngineering
