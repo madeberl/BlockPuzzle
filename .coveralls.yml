@@ -1,3 +1,0 @@
-service_name: travis-pro
-repo_token: OAPOyuaMpHS6wtcLFeisY9wNqkvEnunnr
-gem 'coveralls', require: false
