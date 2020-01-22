@@ -42,4 +42,4 @@ project/.sbtserver
 
 # Application
 yourgame.log
-# .coveralls.yml
+.coveralls.yml
