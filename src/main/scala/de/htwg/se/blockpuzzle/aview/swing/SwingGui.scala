@@ -10,7 +10,7 @@ class CellClicked(val x: Int, val y: Int) extends Event
 
 class SwingGui(var controller : Controller) extends Frame{
   listenTo(controller)
-  title = "WoodBlockPuzzle"
+  title = "BlockPuzzle"
   preferredSize = new Dimension(380, 530)
 
   var cells = Array.ofDim[CellPanel](controller.fieldsize, controller.fieldsize)
