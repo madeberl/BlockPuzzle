@@ -1,26 +1,24 @@
-package de.htwg.se.mastermind.aview
-
-import de.htwg.se.mastermind.controller.Controller
+package de.htwg.se.blockpuzzle.aview.tui
+import de.htwg.se.blockpuzzle.controller.Controller
 import org.scalatest._
 
-class TuiSpec extends WordSpec with Matchers {
-  "A Tui" should {
-    val controller = new Controller()
-    val tui = new Tui(controller)
-    val win = controller.createGame
-    val numbers = """(\d)-(\d)-(\d)-(\d)""".r
-
-    "show the solution of a new sequence" in {
-      tui.processInput("s")
+class TuiSpec  extends WordSpec with Matchers{
+  "A Tui"when{
+    var controller = new Controller
+    var tui = new Tui(controller)
+    "new" should{
+      "get a controller as parameter and print the actual count, highscore, field with coordinates and all 3 blocks"in{
+        //tui = new Tui(controller) should be("Count: "+controller.returnCount+"\n"+"Highscore: "+controller.returnHighscore+"\n"+controller.showFieldWithCoordinates()+"\n"+
+        //  "b1\n"+controller.showBlock(1)+"\nb2\n"+controller.showBlock(2)+"\nb3\n"+controller.showBlock(2)+"\n"+"Enter command: q-Quit. n-Reset all & new game. sbxy - Set block b to x y. g-Give up & ceep points.\n")
+      }
     }
-    "quit the game" in {
-      tui.processInput("q")
-    }
-    "guess a number" in {
-      tui.processInput("1-2-3-4")
-    }
-    "print the help-text when giving invalid input" in {
-      tui.processInput("asd")
+    "in use" should {
+      "quit the input if q was put in" in {
+        tui.processInputLine("q") should be(false)
+      }
+      "return true if the input was correct" in {
+        tui.processInputLine("n") should be(true)
+      }
     }
   }
 }
