@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/madeberl/BlockPuzzle.svg?token=26zgJjzSfXq9Zyjpqwyq&branch=SE-08_Undo)](https://travis-ci.com/madeberl/BlockPuzzle)
 
+[![Coverage Status](https://coveralls.io/repos/github/madeberl/BlockPuzzle/badge.svg)](https://coveralls.io/github/madeberl/BlockPuzzle)
 
 =====================================================
 A game from two students for the lecture SoftwareEngineering
