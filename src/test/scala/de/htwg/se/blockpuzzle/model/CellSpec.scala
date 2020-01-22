@@ -1,4 +1,8 @@
 package de.htwg.se.blockpuzzle.model
+<<<<<<< HEAD
+=======
+
+>>>>>>> SE-05_MVC
 import org.scalatest._
 
 
