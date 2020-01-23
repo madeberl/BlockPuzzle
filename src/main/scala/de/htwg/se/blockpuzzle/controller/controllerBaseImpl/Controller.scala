@@ -1,15 +1,24 @@
-package de.htwg.se.blockpuzzle.controller
-import de.htwg.se.blockpuzzle.model.{Block, Field}
+package de.htwg.se.blockpuzzle.controller.controllerBaseImpl
+
+import com.google.inject.name.Names
+import com.google.inject.{Guice, Inject}
+import net.codingwell.scalaguice.InjectorExtensions._
+import de.htwg.se.blockpuzzle.controller.ControllerInterface
+import de.htwg.se.blockpuzzle.BlockPuzzleModule
+import de.htwg.se.blockpuzzle.model.blockComponent.blockBaseImpl.Block
+import de.htwg.se.blockpuzzle.model.blockComponent.BlockInterface
+import de.htwg.se.blockpuzzle.model.fieldComponent.fieldBaseImpl.Field
+import de.htwg.se.blockpuzzle.model.fieldComponent.FieldInterface
 
 import scala.collection.mutable
-import scala.swing.event.Event
 import scala.swing.Publisher
+import scala.swing.event.Event
 
 
 case class FieldChanged() extends Event
 
-class Controller() extends Publisher {
-  var statusText = "WoodBlockPuzzle"
+class Controller @Inject() extends ControllerInterface with Publisher {
+  var statusText = "BlockPuzzle"
   var field: Field = Field(0)
   var b1: Block = Block(-1)
   var b2: Block = Block(-1)
@@ -103,7 +112,7 @@ class Controller() extends Publisher {
     chosenBlock = chosen
   }
 
-  def getChosenBlock():Int = chosenBlock
+  def getChosenBlock(): Int = chosenBlock
 
   def showBlock(blocknumber: Int): String = {
     blocknumber match {
@@ -130,11 +139,11 @@ class Controller() extends Publisher {
 
   def deleteFullRows(): Unit = this.field.eightInARow()
 
-  def returnCount:Int = this.field.count
+  def returnCount: Int = this.field.count
 
-  def returnHighscore:Int = this.highscore
+  def returnHighscore: Int = this.highscore
 
-  def getBlockType(blocknumber:Int):Int = {
+  def getBlockType(blocknumber:Int): Int = {
     blocknumber match {
       case 1 => b1.blocktype
       case 2 => b2.blocktype

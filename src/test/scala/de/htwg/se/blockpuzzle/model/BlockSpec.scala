@@ -1,4 +1,5 @@
 package de.htwg.se.blockpuzzle.model
+import de.htwg.se.blockpuzzle.model.blockComponent.blockBaseImpl.Block
 import org.scalatest._
 
 

@@ -1,5 +1,5 @@
 package de.htwg.se.blockpuzzle.aview.tui
-import de.htwg.se.blockpuzzle.controller.Controller
+import de.htwg.se.blockpuzzle.controller.controllerBaseImpl.Controller
 import org.scalatest._
 
 

@@ -1,5 +1,5 @@
 package de.htwg.se.blockpuzzle.aview.swing
-import de.htwg.se.blockpuzzle.controller.{Controller, FieldChanged}
+import de.htwg.se.blockpuzzle.controller.{ControllerInterface, FieldChanged}
 
 import scala.swing.Swing.LineBorder
 import scala.swing._
@@ -8,7 +8,7 @@ import scala.swing.event._
 
 class CellClicked(val x: Int, val y: Int) extends Event
 
-class SwingGui(var controller : Controller) extends Frame{
+class SwingGui(var controller : ControllerInterface) extends Frame{
   listenTo(controller)
   title = "BlockPuzzle"
   preferredSize = new Dimension(380, 530)

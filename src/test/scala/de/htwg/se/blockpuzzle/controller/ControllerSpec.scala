@@ -1,6 +1,8 @@
 package de.htwg.se.blockpuzzle.controller
+import de.htwg.se.blockpuzzle.controller.controllerBaseImpl.Controller
 import org.scalatest._
-import de.htwg.se.blockpuzzle.model.{Block, Field}
+import de.htwg.se.blockpuzzle.model.blockComponent.blockBaseImpl.Block
+import de.htwg.se.blockpuzzle.model.fieldComponent.fieldBaseImpl.Field
 
 
 class ControllerSpec extends WordSpec with Matchers {

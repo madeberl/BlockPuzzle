@@ -1,10 +1,10 @@
 package de.htwg.se.blockpuzzle.aview.tui
-import de.htwg.se.blockpuzzle.controller.Controller
-import de.htwg.se.blockpuzzle.controller.FieldChanged
+import de.htwg.se.blockpuzzle.controller.{ControllerInterface, FieldChanged}
+
 import scala.swing._
 
 
-class Tui(var controller : Controller) extends Reactor {
+class Tui(var controller : ControllerInterface) extends Reactor {
   listenTo(controller)
   printTui
   reactions += {

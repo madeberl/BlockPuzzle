@@ -1,11 +1,13 @@
 package de.htwg.se.blockpuzzle.aview.swing
-import de.htwg.se.blockpuzzle.controller.{Controller, FieldChanged}
+import de.htwg.se.blockpuzzle.controller.FieldChanged
+import de.htwg.se.blockpuzzle.controller.ControllerInterface
+import de.htwg.se.blockpuzzle.controller.ControllerInterface
 
 import scala.swing.Button
 import scala.swing.event.MouseClicked
 
 
-class FieldButton(x: Int, y: Int, controller: Controller) extends Button{
+class FieldButton(x: Int, y: Int, controller: ControllerInterface) extends Button{
   text = controller.getCellStatusAtField(x,y).toString
   reactions += {
     case _: FieldChanged => {

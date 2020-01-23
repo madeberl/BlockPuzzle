@@ -1,5 +1,6 @@
 package de.htwg.se.blockpuzzle.aview.swing
-import de.htwg.se.blockpuzzle.controller.{Controller, FieldChanged}
+import de.htwg.se.blockpuzzle.controller.FieldChanged
+import de.htwg.se.blockpuzzle.controller.ControllerInterface
 import javax.swing.{ImageIcon, SwingUtilities}
 
 import scala.swing.Swing.LineBorder
@@ -8,7 +9,7 @@ import scala.swing.event.MouseClicked
 import scala.util.Random
 
 
-class BlockPanel(controller: Controller) extends GridPanel(1,3) {
+class BlockPanel(controller: ControllerInterface) extends GridPanel(1,3) {
 
   val WIDTH = 300
   val HEIGHT = 120

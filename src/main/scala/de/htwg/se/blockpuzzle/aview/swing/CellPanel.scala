@@ -1,11 +1,11 @@
 package de.htwg.se.blockpuzzle.aview.swing
 import scala.swing._
 import scala.swing.event._
-import de.htwg.se.blockpuzzle.controller.Controller
 import de.htwg.se.blockpuzzle.controller.FieldChanged
+import de.htwg.se.blockpuzzle.controller.ControllerInterface
 
 
-class CellPanel(x: Int, y: Int, controller: Controller) extends FlowPanel {
+class CellPanel(x: Int, y: Int, controller: ControllerInterface) extends FlowPanel {
   val emptyCellColor: java.awt.Color = java.awt.Color.darkGray
 
   var color: java.awt.Color = java.awt.Color.green
