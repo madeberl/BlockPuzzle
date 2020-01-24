@@ -41,6 +41,7 @@ trait ControllerInterface extends Publisher {
   def getCellStatusAtBlock(blocknumber:Int, atx:Int, aty:Int): Int
   def reverse: Unit
   def saveState: Unit
+  def save: Unit
 }
 
 import scala.swing.event.Event

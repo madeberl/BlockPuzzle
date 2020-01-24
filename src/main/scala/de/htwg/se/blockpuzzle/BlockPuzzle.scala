@@ -4,7 +4,6 @@ import com.google.inject.Guice
 import de.htwg.se.blockpuzzle.aview.swing.SwingGui
 import de.htwg.se.blockpuzzle.aview.tui.Tui
 import de.htwg.se.blockpuzzle.controller.ControllerInterface
-import de.htwg.se.blockpuzzle.controller.controllerBaseImpl.Controller
 object BlockPuzzle {
 
   val injector = Guice.createInjector(new BlockPuzzleModule)

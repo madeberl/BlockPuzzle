@@ -1,9 +1,12 @@
-package de.htwg.se.blockpuzzle.model
+package de.htwg.se.blockpuzzle.model.blockComponent.blockBaseImpl
 
-case class Block(var blocktype: Int) {
+import de.htwg.se.blockpuzzle.model.blockComponent.BlockInterface
+import de.htwg.se.blockpuzzle.model.cellComponent.cellBaseImpl.Cell
+
+case class Block(var blocktype: Int) extends BlockInterface {
   var blockmaxx = 0
   var blockmaxy = 0
-  var cells : Array[Array[Cell]] = Array.ofDim[Cell](blockmaxx, blockmaxy)
+  var cells: Array[Array[Cell]] = Array.ofDim[Cell](blockmaxx, blockmaxy)
   val YES = 1
 
   blocktype match {

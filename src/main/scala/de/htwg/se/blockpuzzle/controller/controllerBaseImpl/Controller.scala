@@ -197,6 +197,10 @@ class Controller @Inject() extends ControllerInterface with Publisher {
   def saveState(): Unit = {
     this.history.push(new state(this.field, this.b1, this.b2, this.b3, this.availableBlocks))
   }
+
+  def save: Unit = {
+
+  }
 }
 
 case class state(var f:Field, v1:Block, v2:Block, v3:Block, a:Int){

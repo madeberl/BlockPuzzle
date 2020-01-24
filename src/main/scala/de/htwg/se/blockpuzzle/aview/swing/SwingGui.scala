@@ -68,6 +68,7 @@ class SwingGui(var controller : ControllerInterface) extends Frame{
       contents += new MenuItem(Action("New") { controller.reset})
       contents += new MenuItem(Action("Give Up") {controller.giveup})
       contents += new MenuItem(Action("Reverse") { controller.reverse})
+      //contents += new MenuItem(Action("Save")) {controller.save}
       contents += new MenuItem(Action("Quit") { System.exit(0) })
     }
     contents += new Label("                ")

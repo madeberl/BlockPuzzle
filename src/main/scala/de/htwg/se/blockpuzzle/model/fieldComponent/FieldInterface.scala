@@ -1,10 +1,5 @@
 package de.htwg.se.blockpuzzle.model.fieldComponent
 
-import de.htwg.se.blockpuzzle.model.blockComponent.BlockInterface
-import de.htwg.se.blockpuzzle.model.blockComponent.blockBaseImpl.Block
-import de.htwg.se.blockpuzzle.model.cellComponent.CellInterface
-import de.htwg.se.blockpuzzle.model.cellComponent.cellBaseImpl.Cell
-
 trait FieldInterface {
 
   def fs: Int
@@ -15,7 +10,7 @@ trait FieldInterface {
   def toString: String
   def toStringWithCoordinates: String
   def fit(): Boolean
-  def isBlocked(): Boolean
+  def isBlocked(no: Int, pos: Int): Boolean
   def eightInARow(): Unit
 }
 

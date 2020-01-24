@@ -1,6 +1,12 @@
-package de.htwg.se.blockpuzzle.model
+package de.htwg.se.blockpuzzle.model.fieldComponent.fieldBaseImpl
 
-case class Field(fs: Int) {
+import de.htwg.se.blockpuzzle.model.blockComponent.blockBaseImpl.Block
+import de.htwg.se.blockpuzzle.model.blockComponent.BlockInterface
+import de.htwg.se.blockpuzzle.model.cellComponent.cellBaseImpl.Cell
+import de.htwg.se.blockpuzzle.model.cellComponent.CellInterface
+import de.htwg.se.blockpuzzle.model.fieldComponent.FieldInterface
+
+case class Field(fs: Int) extends FieldInterface {
   var returnedBackup = true
   val fieldsize = fs
   val cells: Array[Array[Cell]] = Array.ofDim[Cell](fieldsize, fieldsize)
@@ -11,7 +17,8 @@ case class Field(fs: Int) {
     }
   }
 
-  def + (that:Block, atx:Int, aty:Int): Field = {
+
+  def +(that:Block, atx:Int, aty:Int): Field = {
     if(that.blocktype == -1){
       returnedBackup = true
       return this
