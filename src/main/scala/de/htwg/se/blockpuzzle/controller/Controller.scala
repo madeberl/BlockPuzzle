@@ -1,5 +1,6 @@
 package de.htwg.se.blockpuzzle.controller
 import de.htwg.se.blockpuzzle.model.{Block, Field}
+import de.htwg.se.blockpuzzle.util.Observable
 
 import scala.collection.mutable
 import scala.swing.event.Event
